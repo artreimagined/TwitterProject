@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Navbar</title>
+    <div th:fragment="head-styles">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    </div>
+</head>
+<body>
+<!--<nav class="row navbar navbar-inverse">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="navbar-header">-->
+<!--            <a class="navbar-brand" href="#" style="color: #00aced">-->
+<!--                <i class="fab fa-twitter"></i> Tech Talent Twitter</a>-->
+<!--        </div>-->
+<!--        <div id="navbar">-->
+<!--            <ul class="nav navbar-nav" sec:authorize="isAuthenticated()">-->
+<!--                <li><a href="/tweets">Home</a></li>-->
+<!--                <li><a href="/tweets/new">New Tweet</a></li>-->
+<!--                <li><a href="/users">Users</a></li>-->
+<!--            </ul>-->
+<!--            <ul class="nav navbar-nav navbar-right">-->
+<!--                <li sec:authorize="isAuthenticated()"><a style="pointer-events: none;color: #00aced">-->
+<!--                    @<span sec:authentication="name"></span></a>-->
+<!--                <li sec:authorize="isAuthenticated()"><a href="../logout">Logout</a></li>-->
+<!--                <li sec:authorize="!isAuthenticated()"><a href="../login">Login</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<nav class="row navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color: #00aced">
+                <i class="fab fa-twitter"></i> Teri's Twitter</a>
+        </div>
+        <div id="navbar">
+            <ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
+                <li><a href="/tweets">Home</a></li>
+                <li><a href="/tweets/new">New Tweet</a></li>
+<!--                <li><a href="/users">Users</a></li>-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+<!--                This is the search bar on the navbar-->
+<!--                <form class="navbar-form navbar-right" action="#">-->
+<!--                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--                </form>-->
+                <li sec:authorize="isAuthenticated()"><a style="pointer-events: none;color: #00aced">
+                    @<span sec:authentication="name"></span></a>
+                <li sec:authorize="isAuthenticated()"><a href="../logout">Logout</a></li>
+                <li sec:authorize="!isAuthenticated()"><a href="../login">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div th:fragment="body-links">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/custom.js"></script>
+</div>
+</body>
+</html>
