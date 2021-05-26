@@ -54,45 +54,6 @@ public class Tweet {
 
     @CreationTimestamp
     private Date createdAt;
-    
-  //new
-
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-//
-//	public List<Tag> getTags() {
-//		return tags;
-//	}
-//
-//	public void setTags(List<Tag> tags) {
-//		this.tags = tags;
-//	}
-//
-//	public String getMessage() {
-//		return message;
-//	}
-//
-//	public void setMessage(String message) {
-//		this.message = message;
-//	}
-//
-//	public Date getCreatedAt() {
-//		return createdAt;
-//	}
-//
-//	public void setCreatedAt(Date createdAt) {
-//		this.createdAt = createdAt;
-//	}
-    
-	
-    
-    
-
 
 }
 

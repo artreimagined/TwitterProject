@@ -17,22 +17,17 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 @Data
 @Builder
 @AllArgsConstructor
-//@Getter
-//@Setter
 @NoArgsConstructor
 @Entity
 public class User {
@@ -52,10 +47,7 @@ public class User {
 	private String username;
 
 	@Length(min = 5, message = "Your password must have at least 5 characters")
-	//new
-//	@NotEmpty(message = "Please provide a password")
-//	//new
-//	@JsonProperty(access = Access.WRITE_ONLY)
+
 	private String password;
 
 	@NotEmpty(message = "Please provide your first name")
@@ -74,7 +66,6 @@ public class User {
 	    inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 
-	//name="user_follower" or "user_followers"??
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn(name = "follower_id"))
@@ -82,91 +73,5 @@ public class User {
 
 	@ManyToMany(mappedBy="followers")
 	private List<User> following;
-	
-	//new
-
-//	public String getUsername() {
-//		return username;
-//	}
-//
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
-//
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-//
-//	public String getFirstName() {
-//		return firstName;
-//	}
-//
-//	public void setFirstName(String firstName) {
-//		this.firstName = firstName;
-//	}
-//
-//	public String getLastName() {
-//		return lastName;
-//	}
-//
-//	public void setLastName(String lastName) {
-//		this.lastName = lastName;
-//	}
-//
-//	public int getActive() {
-//		return active;
-//	}
-//
-//	public void setActive(int active) {
-//		this.active = active;
-//	}
-//
-//	public Date getCreatedAt() {
-//		return createdAt;
-//	}
-//
-//	public void setCreatedAt(Date createdAt) {
-//		this.createdAt = createdAt;
-//	}
-//
-//	public Set<Role> getRoles() {
-//		return roles;
-//	}
-//
-//	public void setRoles(Set<Role> roles) {
-//		this.roles = roles;
-//	}
-//
-//	public List<User> getFollowers() {
-//		return followers;
-//	}
-//
-//	public void setFollowers(List<User> followers) {
-//		this.followers = followers;
-//	}
-//
-//	public List<User> getFollowing() {
-//		return following;
-//	}
-//
-//	public void setFollowing(List<User> following) {
-//		this.following = following;
-//	}
-
-	
-
-	
 
 }
